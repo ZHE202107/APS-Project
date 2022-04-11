@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout/activity_schedule_table_inquire.xml" value="0.1125" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout/activity_today_schedule.xml" value="0.1" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout/fragment_production_schedule.xml" value="0.1" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout/fragment_schedule_table.xml" value="0.134375" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/drawable/btn_m1.xml" value="0.2" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/drawable/btn_style1.xml" value="0.259" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/drawable/detailsf_radio_selector.xml" value="0.1955" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/drawable/divider.xml" value="0.259" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/drawable/radio_group_shape.xml" value="0.1955" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/drawable/shape_details_fagment_btn.xml" value="0.259" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout-land/activity_today_schedule.xml" value="0.1424162257495591" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/activity_login_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/activity_schedule_table_inquire.xml" value="0.2346014492753623" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/activity_setting.xml" value="0.3538050734312417" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/activity_today_schedule.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/base_title_bar.xml" value="0.16875" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/base_title_bar_back.xml" value="0.30011587485515645" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/btn_m1.xml" value="0.2390625" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/details_switch_a_layout.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/details_switch_b_layout.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/fragment_add_schedule.xml" value="0.2" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/fragment_details.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/fragment_msg_notify.xml" value="0.23505434782608695" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/fragment_production_schedule.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/fragment_schedule_table.xml" value="0.4042759961127308" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/fragment_today_schedule.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/schedule_table_rv_item_layout.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/title_bar.xml" value="0.536" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/layout/today_schedule_rv_item_layout.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2505" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

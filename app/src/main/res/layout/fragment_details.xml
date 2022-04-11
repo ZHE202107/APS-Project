@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="5dp">
+
+            <LinearLayout
+                android:id="@+id/detailsLayoutSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+                <include android:id="@+id/detailsLayoutA" layout="@layout/details_switch_a_layout" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/prev_stage_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/detailsf_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="前關製令"
+                    android:textColor="@color/detailsf_radio_text_selector"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/curr_stage_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/detailsf_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="本階製令"
+                    android:textColor="@color/detailsf_radio_text_selector"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/next_stage_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/detailsf_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="後關製令"
+                    android:textColor="@color/detailsf_radio_text_selector"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/assembly_stage_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/detailsf_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="裝配製令"
+                    android:textColor="@color/detailsf_radio_text_selector"
+                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/sales_radio_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/detailsf_radio_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="銷售訂單"
+                    android:textColor="@color/detailsf_radio_text_selector"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C9C9C9"
+            android:paddingTop="6dp">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="500dp"
+                android:layout_height="0dp"
+                android:src="@drawable/shape_btn1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/nextPageBtn"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toEndOf="@+id/previous_page_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageButton
+                android:id="@+id/previous_page_btn"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/nextPageBtn"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:rotation="180"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
