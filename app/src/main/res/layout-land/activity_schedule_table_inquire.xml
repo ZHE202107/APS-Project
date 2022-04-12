@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ScheduleTableInquireActivity">
+    tools:context=".activity.ScheduleTableInquireActivity">
 
     <include
         android:id="@+id/titleBarBack"
@@ -12,7 +12,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.aps_project.AddScheduleFragment"
+        android:name="com.example.aps_project.fragment.AddScheduleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

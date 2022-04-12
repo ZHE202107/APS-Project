@@ -1,5 +1,7 @@
-package com.example.aps_project;
+package com.example.aps_project.fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,17 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.aps_project.databinding.FragmentScheduleTableBinding;
+import com.example.aps_project.R;
+import com.example.aps_project.activity.TodayScheduleActivity;
+import com.example.aps_project.databinding.FragmentTodayScheduleBinding;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ScheduleTableFragment#newInstance} factory method to
+ * Use the {@link TodayScheduleFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ScheduleTableFragment extends Fragment {
-    private FragmentScheduleTableBinding binding;
+public class TodayScheduleFragment extends Fragment {
+    private FragmentTodayScheduleBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +35,7 @@ public class ScheduleTableFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ScheduleTableFragment() {
+    public TodayScheduleFragment() {
         // Required empty public constructor
     }
 
@@ -42,11 +45,11 @@ public class ScheduleTableFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ScheduleTableFragment.
+     * @return A new instance of fragment TodayScheduleFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ScheduleTableFragment newInstance(String param1, String param2) {
-        ScheduleTableFragment fragment = new ScheduleTableFragment();
+    public static TodayScheduleFragment newInstance(String param1, String param2) {
+        TodayScheduleFragment fragment = new TodayScheduleFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,61 +68,62 @@ public class ScheduleTableFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentScheduleTableBinding.inflate(inflater, container, false);
-        init(); //初始化
+        binding = FragmentTodayScheduleBinding.inflate(inflater, container, false);
+        init(); // 初始化
         return binding.getRoot();
     }
 
+
     private void init() {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ScheduleTableAdapter mAdapter = new ScheduleTableAdapter();
-        mAdapter.setOnItemClickListener((view, position) -> {
-//            Toast.makeText(getContext(), "點擊了"+String.valueOf(position), Toast.LENGTH_SHORT).show(); //Debug用!!!
-            getParentFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainerView, new DetailsFragment())
-                .addToBackStack("1")
-                .commit();
+        ScheduleAdapter mAdapter = new ScheduleAdapter();
+        mAdapter.setOnItemClickListener((view, position) ->  {
+            // Toast.makeText(binding.getRoot().getContext(), "點擊了"+String.valueOf(position), Toast.LENGTH_SHORT).show(); //!!Debug用
+            Intent intent = new Intent(getActivity(), TodayScheduleActivity.class);
+            startActivity(intent);
         });
         binding.recyclerView.setAdapter(mAdapter);
+
     }
 
-    /** -----------------------
-     * ScheduleTableAdapter
-     * ------------------------ */
-    private static class ScheduleTableAdapter extends RecyclerView.Adapter<ScheduleTableAdapter.ViewHolder> {
-        public OnItemClickListener mOnItemClickListener;
+    /** --------------------
+     *   ScheduleAdapter
+     * -------------------- */
+    static class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHolder> {
+        private OnItemClickListener mOnItemClickListener;
 
-        // 設置click監聽接口
+        //設置Callback接口
         public interface OnItemClickListener {
-            void OnItemClick(View view, int position);
+            void onItemClick(View view, int position);
         }
 
         public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
             this.mOnItemClickListener = mOnItemClickListener;
         }
 
-        public static class ViewHolder extends RecyclerView.ViewHolder {
-            TextView index;
+        public class ViewHolder extends RecyclerView.ViewHolder {
+            TextView tvIndex;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                index = itemView.findViewById(R.id.indTextView);
+                tvIndex = itemView.findViewById(R.id.indTextView);
             }
         }
 
         @NonNull
         @Override
-        public ScheduleTableAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ScheduleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.schedule_table_rv_item_layout, parent, false);
+                    .inflate(R.layout.item_today_schedule, parent, false);
             return new ViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ScheduleTableAdapter.ViewHolder holder, int position) {
-            holder.index.setText(String.valueOf(position+1));
+        public void onBindViewHolder(@NonNull ScheduleAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+            holder.tvIndex.setText(String.valueOf(position+1));
+            // 設置點擊事件
             if (mOnItemClickListener != null) {
                 holder.itemView.setOnClickListener(View -> {
-                    mOnItemClickListener.OnItemClick(holder.itemView, position+1);
+                    mOnItemClickListener.onItemClick(holder.itemView, position+1);
                 });
             }
         }

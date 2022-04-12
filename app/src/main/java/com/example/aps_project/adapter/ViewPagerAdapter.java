@@ -1,18 +1,14 @@
-package com.example.aps_project;
-
-import android.view.LayoutInflater;
-import android.view.View;
+package com.example.aps_project.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
-import androidx.viewbinding.ViewBinding;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.aps_project.databinding.ActivityMainBinding;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
+import com.example.aps_project.fragment.MsgNotifyFragment;
+import com.example.aps_project.fragment.ProductionScheduleFragment;
+import com.example.aps_project.fragment.TodayScheduleFragment;
 
 import java.util.Arrays;
 import java.util.List;

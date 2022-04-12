@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsFragment">
+    tools:context=".fragment.DetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="vertical">
-                <include android:id="@+id/detailsLayoutA" layout="@layout/details_switch_a_layout" />
+                <include android:id="@+id/detailsLayoutA" layout="@layout/layout_details_switch_a" />
             </LinearLayout>
 
             <RadioGroup
@@ -38,11 +38,11 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/detailsf_radio_selector"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:text="前關製令"
-                    android:textColor="@color/detailsf_radio_text_selector"
+                    android:background="@drawable/details_radio_selector"
+                    android:textColor="@color/details_radio_text_selector"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <RadioButton
@@ -51,12 +51,12 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="-1dp"
                     android:layout_weight="1"
-                    android:background="@drawable/detailsf_radio_selector"
                     android:button="@android:color/transparent"
                     android:checked="true"
                     android:gravity="center"
                     android:text="本階製令"
-                    android:textColor="@color/detailsf_radio_text_selector"
+                    android:background="@drawable/details_radio_selector"
+                    android:textColor="@color/details_radio_text_selector"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <RadioButton
@@ -65,11 +65,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="-1dp"
                     android:layout_weight="1"
-                    android:background="@drawable/detailsf_radio_selector"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:text="後關製令"
-                    android:textColor="@color/detailsf_radio_text_selector"
+                    android:background="@drawable/details_radio_selector"
+                    android:textColor="@color/details_radio_text_selector"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <RadioButton
@@ -78,11 +78,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="-1dp"
                     android:layout_weight="1"
-                    android:background="@drawable/detailsf_radio_selector"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:text="裝配製令"
-                    android:textColor="@color/detailsf_radio_text_selector"
+                    android:background="@drawable/details_radio_selector"
+                    android:textColor="@color/details_radio_text_selector"
                     tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                 <RadioButton
@@ -91,11 +91,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="-1dp"
                     android:layout_weight="1"
-                    android:background="@drawable/detailsf_radio_selector"
                     android:button="@android:color/transparent"
                     android:gravity="center"
                     android:text="銷售訂單"
-                    android:textColor="@color/detailsf_radio_text_selector"
+                    android:background="@drawable/details_radio_selector"
+                    android:textColor="@color/details_radio_text_selector"
                     tools:ignore="TouchTargetSizeCheck" />
             </RadioGroup>
 

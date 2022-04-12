@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TodayScheduleActivity">
+    tools:context=".activity.TodayScheduleActivity">
 
     <include
         android:id="@+id/titleBarBack"
@@ -12,7 +12,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
-        android:name="com.example.aps_project.DetailsFragment"
+        android:name="com.example.aps_project.fragment.DetailsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

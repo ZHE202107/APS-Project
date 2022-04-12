@@ -1,4 +1,4 @@
-package com.example.aps_project;
+package com.example.aps_project.fragment;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
+import com.example.aps_project.R;
 import com.example.aps_project.databinding.FragmentDetailsBinding;
 import com.google.android.material.internal.VisibilityAwareImageButton;
 
@@ -105,8 +106,8 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (!b) return; //如果都沒有被選擇，則直接結束
-        View viewA = getLayoutInflater().inflate(R.layout.details_switch_a_layout, null);
-        View viewB = getLayoutInflater().inflate(R.layout.details_switch_b_layout, null);
+        View viewA = getLayoutInflater().inflate(R.layout.layout_details_switch_a, null);
+        View viewB = getLayoutInflater().inflate(R.layout.layout_details_switch_b, null);
         binding.detailsLayoutSwitch.removeAllViews();
         if (compoundButton == binding.salesRadioBtn) {
             binding.detailsLayoutSwitch.addView(viewB);

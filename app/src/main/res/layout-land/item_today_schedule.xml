@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="1dp"
     android:background="@color/white"
     android:gravity="center_vertical"
     android:paddingHorizontal="6dp"
-    android:paddingVertical="8dp">
+    android:paddingVertical="8dp"
+    tools:ignore="MissingDefaultResource">
 
     <TextView
         android:id="@+id/indTextView"
@@ -30,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="1MO1812040031"
-            android:textColor="#43A047" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView9"
@@ -104,8 +106,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="3"
-        android:text="上線日：2018-12-07"
-        android:textColor="@color/black" />
+        android:text="計劃開始：08:00"
+        android:textColor="#388E3C" />
 
     <TextView
         android:id="@+id/textView17"
@@ -113,14 +115,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:text="一群-點焊"
-        android:textColor="#43A047" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="生效"
         android:textColor="@color/black" />
 
     <ImageView

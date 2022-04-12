@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APSProject">
         <activity
-            android:name=".TodayScheduleActivity"
+            android:name=".activity.TodayScheduleActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
 
@@ -19,19 +19,19 @@
             android:resource="@xml/actions" />
 
         <activity
-            android:name=".ScheduleTableInquireActivity"
+            android:name=".activity.ScheduleTableInquireActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".SettingActivity"
+            android:name=".activity.SettingActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".LoginMainActivity"
+            android:name=".activity.LoginMainActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>

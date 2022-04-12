@@ -1,10 +1,12 @@
-package com.example.aps_project;
+package com.example.aps_project.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.aps_project.R;
 
 public class LoginMainActivity extends AppCompatActivity {
 
