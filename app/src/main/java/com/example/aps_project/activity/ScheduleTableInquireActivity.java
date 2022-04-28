@@ -1,26 +1,30 @@
 package com.example.aps_project.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.example.aps_project.databinding.ActivityScheduleTableInquireBinding;
+import com.example.aps_project.databinding.FragmentAddScheduleBinding;
 
 public class ScheduleTableInquireActivity extends AppCompatActivity {
-    private ActivityScheduleTableInquireBinding binding;
+    private ActivityScheduleTableInquireBinding mainBinding;
+    private FragmentAddScheduleBinding fragmentBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityScheduleTableInquireBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        mainBinding = ActivityScheduleTableInquireBinding.inflate(getLayoutInflater());
+        fragmentBinding = FragmentAddScheduleBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
         init(); //初始化
     }
 
     private void init() {
-        binding.titleBarBack.tvCurrentTitle.setText("進度表查詢");
-        binding.titleBarBack.backBtn.setOnClickListener((view) -> {
+        mainBinding.titleBarBack.tvCurrentTitle.setText("進度表查詢");
+        mainBinding.titleBarBack.backBtn.setOnClickListener((view) -> {
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();
             } else {

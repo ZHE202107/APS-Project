@@ -70,8 +70,8 @@ public class ProductionScheduleFragment extends Fragment {
         return binding.getRoot(); // Inflate the layout for this fragment
     }
 
-    public void init() {
-        // 當SettingBtn被按下,則跳轉到SettingActivity頁面
+    private void init() {
+        // 當SettingBtn被按下,則跳轉到SettingActivity(設定)頁面
         Intent intent = new Intent();
         binding.settingBtn.setOnClickListener(View -> {
             intent.setClass(getActivity(), SettingActivity.class);

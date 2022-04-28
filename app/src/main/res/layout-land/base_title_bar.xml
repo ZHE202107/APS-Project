@@ -31,4 +31,5 @@
         android:text="UserName"
         android:textColor="#FFF"
         android:textSize="12dp" />
+
 </RelativeLayout>

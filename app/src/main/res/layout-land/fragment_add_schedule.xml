@@ -7,10 +7,12 @@
     tools:context=".fragment.AddScheduleFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TableLayout
+            android:id="@+id/tableLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/okBtn"
@@ -56,17 +58,19 @@
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName4"
+                    android:id="@+id/online_date"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/calendarBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="#00FFFFFF"
+                    android:layout_margin="5dp"
+                    android:background="#FFA000"
                     android:text="..." />
 
             </TableRow>
@@ -85,17 +89,19 @@
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName3"
+                    android:id="@+id/so_id"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/button6"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:background="#00FFFFFF"
+                    android:id="@+id/querry_sale_order_Btn"
+                    android:layout_width="37dp"
+                    android:layout_height="28dp"
+                    android:layout_margin="5dp"
+                    android:background="#FFA000"
                     android:text="..." />
             </TableRow>
 
@@ -113,17 +119,19 @@
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName5"
+                    android:id="@+id/customer"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/querry_custmoer_name_Btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="#00FFFFFF"
+                    android:layout_margin="5dp"
+                    android:background="#FFA000"
                     android:text="..." />
             </TableRow>
         </TableLayout>
@@ -140,6 +148,55 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/relative_layout"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|fill_horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/okBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="false"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <CalendarView
+                    android:id="@+id/calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFD740" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/recycler_out_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFD740"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
