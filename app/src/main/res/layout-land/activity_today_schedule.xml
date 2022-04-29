@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.TodayScheduleActivity">
+    tools:ignore="MissingDefaultResource">
 
-    <include
-        android:id="@+id/titleBarBack"
-        layout="@layout/base_title_bar_back" />
+    <data>
+        <variable
+            name="session"
+            type="com.example.aps_project.SessionManager" />
+    </data>
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name="com.example.aps_project.fragment.DetailsFragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.TodayScheduleActivity">
 
-</LinearLayout>
+        <include
+            android:id="@+id/titleBarBack"
+            layout="@layout/base_title_bar_back"
+            bind:session="@{session}"/>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView2"
+            android:name="com.example.aps_project.fragment.DetailsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</layout>

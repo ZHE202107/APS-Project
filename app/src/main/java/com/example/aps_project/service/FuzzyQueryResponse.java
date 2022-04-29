@@ -1,12 +1,17 @@
 package com.example.aps_project.service;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class FuzzyQueryResponse {
-    @SerializedName("so_id")
+    public static final String SO_ID_KEY = "so_id";
+    public static final String CUSTOMER_NAME_KEY = "customer_name";
+
+    @SerializedName(SO_ID_KEY)
     private String so_id = "";
 
-    @SerializedName("customer_name")
+    @SerializedName(CUSTOMER_NAME_KEY)
     private String customer_name = "";
 
     public String getCustomer_name() {
@@ -16,11 +21,11 @@ public class FuzzyQueryResponse {
         return so_id;
     }
 
-    public String getItemValue(String key) {
+    public String getItemValue(@NonNull String key) {
         switch (key) {
-            case "so_id":
+            case SO_ID_KEY:
                 return so_id;
-            case "customer_name":
+            case CUSTOMER_NAME_KEY:
                 return customer_name;
             default: return "";
         }

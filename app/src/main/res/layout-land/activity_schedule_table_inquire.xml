@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.ScheduleTableInquireActivity">
+    tools:ignore="MissingDefaultResource">
 
-    <include
-        android:id="@+id/titleBarBack"
-        layout="@layout/base_title_bar_back" />
+    <data>
+        <variable
+            name="session"
+            type="com.example.aps_project.SessionManager" />
+    </data>
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="com.example.aps_project.fragment.AddScheduleFragment"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.ScheduleTableInquireActivity">
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <include
+            android:id="@+id/titleBarBack"
+            layout="@layout/base_title_bar_back"
+            bind:session="@{session}"/>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:name="com.example.aps_project.fragment.AddScheduleFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

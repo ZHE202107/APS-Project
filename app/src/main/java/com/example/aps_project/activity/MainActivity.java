@@ -2,10 +2,14 @@ package com.example.aps_project.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import com.example.aps_project.R;
+import com.example.aps_project.SessionManager;
 import com.example.aps_project.adapter.ViewPagerAdapter;
 import com.example.aps_project.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayout;
@@ -22,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        init();
+        binding.setSession(new SessionManager(this));
+        Log.e("www", "protected void onCreate(Bundle savedInstanceState) {：" + new SessionManager(this).fetchUserName());
+        init(); //初始化
     }
 
     public void init() {

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AddScheduleFragment">
+    tools:context=".fragment.AddScheduleFragment"
+    tools:ignore="MissingDefaultResource">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/body"
@@ -97,7 +98,7 @@
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/querry_sale_order_Btn"
+                    android:id="@+id/query_sale_order_Btn"
                     android:layout_width="37dp"
                     android:layout_height="28dp"
                     android:layout_margin="5dp"
@@ -127,7 +128,7 @@
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/querry_custmoer_name_Btn"
+                    android:id="@+id/query_customer_name_Btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -152,8 +153,10 @@
         <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
+            android:clickable="true"
             android:gravity="center_horizontal|fill_horizontal"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/okBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +165,7 @@
             <LinearLayout
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -184,11 +187,11 @@
             <LinearLayout
                 android:id="@+id/recycler_out_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="#FFD740"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"

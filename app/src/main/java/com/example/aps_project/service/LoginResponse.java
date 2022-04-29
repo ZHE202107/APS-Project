@@ -1,8 +1,8 @@
 package com.example.aps_project.service;
 
-import com.google.gson.annotations.SerializedName;
+import androidx.annotation.NonNull;
 
-import org.jetbrains.annotations.Nullable;
+import com.google.gson.annotations.SerializedName;
 
 public class LoginResponse {
     @SerializedName("status")
@@ -10,6 +10,9 @@ public class LoginResponse {
 
     @SerializedName("token")
     private String token="token";
+
+    @SerializedName("name") //登入者名稱
+    private String userName;
 
     public int getStatus() {
         return status;
@@ -19,6 +22,10 @@ public class LoginResponse {
         return token;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+    @NonNull
     @Override
     public String toString() {
         return "LoginResponse{" +

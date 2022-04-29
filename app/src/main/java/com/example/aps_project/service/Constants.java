@@ -7,4 +7,6 @@ public final class Constants {
     public static final String LOGOUT_ULR = "auth/logout";    //登出
     public static final String FUZZY_QUERY_SALE_ORDER = "app-search-so"; //模糊查詢訂單單號
     public static final String FUZZY_QUERY_CUSTOMER = "app-search-customer";  //模糊查詢客戶名稱
+
+    public static final String GET_MANUFACTURE = "get-manufacture"; //查詢製令單號(MO)
 }

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.aps_project.SessionManager;
 import com.example.aps_project.databinding.ActivitySettingBinding;
+
 
 public class SettingActivity extends AppCompatActivity {
     private ActivitySettingBinding binding;
@@ -14,6 +16,7 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySettingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.setSession(new SessionManager(this));
         init();
     }
 

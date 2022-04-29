@@ -3,32 +3,45 @@
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--    android:layout_height="match_parent"-->
 <!--    android:layout_width="match_parent">-->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/titleBarBack"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    tools:ignore="MissingDefaultResource">
 
-    <include layout="@layout/base_title_bar" />
+    <data>
+        <variable
+            name="session"
+            type="com.example.aps_project.SessionManager" />
+    </data>
 
-    <ImageView
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/titleBarBack"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="6dp"
-        android:cropToPadding="false"
-        android:scaleType="center"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvCurrentTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/backBtn"
-        android:text="返回"
-        android:textColor="@color/white"
-        android:textSize="14dp" />
-</RelativeLayout>
+        <include layout="@layout/base_title_bar"
+            bind:session="@{session}"/>
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:cropToPadding="false"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+        <TextView
+            android:id="@+id/tvCurrentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/backBtn"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+    </RelativeLayout>
+</layout>

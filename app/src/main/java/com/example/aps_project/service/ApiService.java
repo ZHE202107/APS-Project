@@ -9,18 +9,34 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
+    //登入取得Token
     @POST(Constants.LOGIN_URL)
     Call<LoginResponse> login(@Body LoginRequest request);
 
-    @GET(Constants.FUZZY_QUERY_SALE_ORDER) //模糊查詢訂單單號
+    //獲取登入人員資訊
+    @GET(Constants.USER_INFO_URL)
+    Call<LoginResponse> fetchUserInfo(@Query("token") String token);
+
+    //模糊查詢訂單單號
+    @GET(Constants.FUZZY_QUERY_SALE_ORDER)
     Call<List<FuzzyQueryResponse>> fuzzyQuerySaleOrder(
         @Query("token") String token,
         @Query("so_id") String so_id
     );
 
-    @GET(Constants.FUZZY_QUERY_CUSTOMER) //模糊查詢客戶名稱
+    //模糊查詢客戶名稱
+    @GET(Constants.FUZZY_QUERY_CUSTOMER)
     Call<List<FuzzyQueryResponse>> fuzzyQueryCustomer(
         @Query("token") String token,
         @Query("customer_name") String customer_name
+    );
+
+    //查詢製令單號(MO)
+    @GET(Constants.GET_MANUFACTURE)
+    Call<List<MOResponse>> getManufactureOrder(
+        @Query("token") String token,
+        @Query("online_date") String online_date,
+        @Query("sale_order") String sale_order,
+        @Query("customer") String customer
     );
 }

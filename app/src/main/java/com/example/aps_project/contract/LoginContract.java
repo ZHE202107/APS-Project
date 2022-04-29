@@ -2,7 +2,6 @@ package com.example.aps_project.contract;
 
 public class LoginContract {
     public interface IView{
-
         // 登入成功
         void showLoginSuccess();
 

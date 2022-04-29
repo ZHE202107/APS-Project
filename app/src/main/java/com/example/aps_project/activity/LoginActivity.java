@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.aps_project.R;
 import com.example.aps_project.contract.LoginContract;
 import com.example.aps_project.databinding.ActivityLoginMainBinding;
 import com.example.aps_project.presenter.LoginPresenter;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.IView {
-    private static ActivityLoginMainBinding binding;
+    private ActivityLoginMainBinding binding;
     private static LoginPresenter presenter;
 
     @Override
@@ -27,7 +26,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.IV
     // 登入按鈕, click如果登入成功則跳轉到主頁面(MainActivity)
     public void login(View v) {
         presenter.login(binding.accountEditText.getText().toString(),
-                        binding.passwordEditText.getText().toString());
+            binding.passwordEditText.getText().toString());
     }
 
     // 登入成功

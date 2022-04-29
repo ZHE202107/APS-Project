@@ -10,16 +10,19 @@
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/activity_main.xml" value="0.175" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/activity_schedule_table_inquire.xml" value="0.175" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/activity_setting.xml" value="0.175" />
-        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/base_title_bar.xml" value="0.72" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/activity_today_schedule.xml" value="0.21472663139329806" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/base_title_bar.xml" value="0.48104956268221577" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/base_title_bar_back.xml" value="0.6" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/details_switch_a_layout.xml" value="0.175" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/details_switch_b_layout.xml" value="0.175" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/fragment_add_schedule.xml" value="0.264" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/fragment_details.xml" value="0.19322916666666667" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/fragment_production_schedule.xml" value="0.15520282186948853" />
-        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/fragment_schedule_table.xml" value="0.1" />
-        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/item_schedule_table.xml" value="0.11375661375661375" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/fragment_schedule_table.xml" value="0.136" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/fragment_today_schedule.xml" value="0.1" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/item_schedule_table.xml" value="0.264" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/item_simple.xml" value="0.2" />
-        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/item_today_schedule.xml" value="0.11375661375661375" />
+        <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/item_today_schedule.xml" value="0.264" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/layout_details_switch_a.xml" value="0.11375661375661375" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout-land/layout_details_switch_b.xml" value="0.11375661375661375" />
         <entry key="..\:/MyProgramming/AndroidStudioProjects/#MyProject/APS-Project/app/src/main/res/layout/activity_schedule_table_inquire.xml" value="0.1125" />

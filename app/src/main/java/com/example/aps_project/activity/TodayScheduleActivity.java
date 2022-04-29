@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.aps_project.SessionManager;
 import com.example.aps_project.databinding.ActivityTodayScheduleBinding;
 
 public class TodayScheduleActivity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class TodayScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityTodayScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.setSession(new SessionManager(this));
         init(); //元件初始化
     }
 

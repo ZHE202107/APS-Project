@@ -7,13 +7,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.aps_project.R;
 import com.example.aps_project.databinding.FragmentScheduleTableBinding;
+import com.example.aps_project.databinding.ItemScheduleTableBinding;
+import com.example.aps_project.model.ScheduleTableSearchRepository;
+import com.example.aps_project.service.MOResponse;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +27,7 @@ import com.example.aps_project.databinding.FragmentScheduleTableBinding;
  */
 public class ScheduleTableFragment extends Fragment {
     private FragmentScheduleTableBinding binding;
+    private ScheduleTableSearchRepository repository;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,16 +77,25 @@ public class ScheduleTableFragment extends Fragment {
     }
 
     private void init() {
+        repository = new ScheduleTableSearchRepository(this);
+
+        List<MOResponse> searchResultList = repository.loadScheduleTable();
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ScheduleTableAdapter mAdapter = new ScheduleTableAdapter();
+        ScheduleTableAdapter mAdapter = new ScheduleTableAdapter(searchResultList);
+
+        //recyclerView 的item典籍事件
         mAdapter.setOnItemClickListener((view, position) -> {
-//            Toast.makeText(getContext(), "點擊了"+String.valueOf(position), Toast.LENGTH_SHORT).show(); //Debug用!!!
+            //Toast.makeText(getContext(), "點擊了"+String.valueOf(position), Toast.LENGTH_SHORT).show(); //Debug用!!!
             getParentFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainerView, new DetailsFragment())
-                .addToBackStack("1")
-                .commit();
+                    .replace(R.id.fragmentContainerView, new DetailsFragment())
+                    .addToBackStack("1")
+                    .commit();
         });
+
         binding.recyclerView.setAdapter(mAdapter);
+        Log.e("www", "總比數為" + searchResultList.size());
+        //總比數顯示
+        binding.totalNum.setText("共" + searchResultList.size() + "筆");
     }
 
     /** -----------------------
@@ -88,6 +103,11 @@ public class ScheduleTableFragment extends Fragment {
      * ------------------------ */
     private static class ScheduleTableAdapter extends RecyclerView.Adapter<ScheduleTableAdapter.ViewHolder> {
         public OnItemClickListener mOnItemClickListener;
+        private final List<MOResponse> searchResultList;  //進度表搜尋結果
+
+        public ScheduleTableAdapter(List<MOResponse> srList) {
+            this.searchResultList = srList;
+        }
 
         // 設置click監聽接口
         public interface OnItemClickListener {
@@ -98,35 +118,57 @@ public class ScheduleTableFragment extends Fragment {
             this.mOnItemClickListener = mOnItemClickListener;
         }
 
-        public static class ViewHolder extends RecyclerView.ViewHolder {
-            TextView index;
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                index = itemView.findViewById(R.id.indTextView);
+        public class ViewHolder extends RecyclerView.ViewHolder {
+            private ItemScheduleTableBinding mView;
+            public ViewHolder(@NonNull ItemScheduleTableBinding itemView) {
+                super(itemView.getRoot());
+                this.mView = itemView;
+            }
+            public void bindView(int position) {
+                mView.index.setText(String.valueOf(position+1));
+                if (mOnItemClickListener != null) {
+                    itemView.setOnClickListener(View -> {
+                        mOnItemClickListener.OnItemClick(itemView, position+1);
+                    });
+                }
+
+                MOResponse itemData = searchResultList.get(position);
+                mView.moId.setText(itemData.getMoId()); //制令單號MO
+                mView.soId.setText(itemData.getSoId()); //銷售單號SO
+
+                int letterLimit = 15; //字數限制
+                //母件代碼
+                String itemId = itemData.getItemId();
+                if(itemId.length() > letterLimit)
+                    itemId = itemId.substring(0, letterLimit) + "...";
+                mView.itemId.setText(itemId);
+                //客戶名稱
+                String customer = itemData.getCustomer();
+                if(customer.length() > letterLimit)
+                    customer = customer.substring(0, letterLimit) + "...";
+                mView.customer.setText(customer);
+
+                mView.qty.setText("數量：" + itemData.getQuantity()); //數量
+                mView.deadline.setText("結關日：" + itemData.getDeadline());  //結關日期
+                mView.onlineDate.setText("上線日：" + itemData.getOnlineDate()); //上線日期
+                mView.techRoutingName.setText(itemData.getRelatedTechRoute().getTechRouteName());
             }
         }
 
         @NonNull
         @Override
         public ScheduleTableAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_schedule_table, parent, false);
-            return new ViewHolder(view);
+            return new ViewHolder(ItemScheduleTableBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
         }
 
         @Override
         public void onBindViewHolder(@NonNull ScheduleTableAdapter.ViewHolder holder, int position) {
-            holder.index.setText(String.valueOf(position+1));
-            if (mOnItemClickListener != null) {
-                holder.itemView.setOnClickListener(View -> {
-                    mOnItemClickListener.OnItemClick(holder.itemView, position+1);
-                });
-            }
+            holder.bindView(position);
         }
 
         @Override
         public int getItemCount() {
-            return 10;
+            return searchResultList.size();
         }
     }
 }

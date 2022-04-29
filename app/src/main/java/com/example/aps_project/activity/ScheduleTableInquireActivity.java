@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.aps_project.SessionManager;
 import com.example.aps_project.databinding.ActivityScheduleTableInquireBinding;
 import com.example.aps_project.databinding.FragmentAddScheduleBinding;
 
@@ -19,6 +20,7 @@ public class ScheduleTableInquireActivity extends AppCompatActivity {
         mainBinding = ActivityScheduleTableInquireBinding.inflate(getLayoutInflater());
         fragmentBinding = FragmentAddScheduleBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
+        mainBinding.setSession(new SessionManager(this));
         init(); //初始化
     }
 

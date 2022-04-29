@@ -12,7 +12,7 @@
     tools:ignore="MissingDefaultResource">
 
     <TextView
-        android:id="@+id/indTextView"
+        android:id="@+id/index"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -27,7 +27,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/mo_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
             android:textColor="#43A047" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/so_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,7 +50,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/item_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,7 +58,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/customer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -84,7 +84,7 @@
                 android:text="　" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/qty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="數量：3"
@@ -93,7 +93,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/deadline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="結關日：2018-12-07"
@@ -102,7 +102,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/online_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="3"
@@ -110,7 +110,7 @@
         android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/tech_routing_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"

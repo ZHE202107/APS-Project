@@ -9,7 +9,8 @@ import org.jetbrains.annotations.Nullable;
  * Session Manager 從 SharedPreferences 儲存和獲取資料
  */
 public class SessionManager {
-    private static String TOKEN = "token";  //欄位
+    private static String TOKEN = "token";      //存儲"token"    的KEY
+    private static String USER = "user_name";   //儲存"使用者名稱" 的KEY
     private Context context;
     private SharedPreferences prefs;
 
@@ -29,5 +30,14 @@ public class SessionManager {
     @Nullable
     public String fetchAuthToken() {
         return prefs.getString(TOKEN, "");
+    }
+
+    // 儲存使用者姓名
+    public void saveUserName(String userName) {
+        prefs.edit().putString(USER, userName).apply(); // 存入SharedPreferences
+    }
+    // 獲取使用者姓名
+    public String fetchUserName() {
+        return prefs.getString(USER, "");
     }
 }

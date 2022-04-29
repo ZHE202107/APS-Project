@@ -105,7 +105,7 @@ public class TodayScheduleFragment extends Fragment {
             TextView tvIndex;
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                tvIndex = itemView.findViewById(R.id.indTextView);
+                tvIndex = itemView.findViewById(R.id.index);
             }
         }
 
