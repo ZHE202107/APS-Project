@@ -21,8 +21,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <include layout="@layout/base_title_bar"
-            bind:session="@{session}"/>
+        <include
+            layout="@layout/base_title_bar"
+            bind:session="@{session}" />
 
         <ImageView
             android:id="@+id/backBtn"

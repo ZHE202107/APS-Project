@@ -21,6 +21,8 @@ public class MOResponse {
     @SerializedName("related_tech_route") //相關工藝路線
     private RelatedTechRoute relatedTechRoute;
 
+    @SerializedName("item_name")    //母件名稱
+    private String itemName;
 
     /**
       * 以下都是屬性的get方法
@@ -51,6 +53,10 @@ public class MOResponse {
 
     public String getOnlineDate() {
         return onlineDate;
+    }
+
+    public String getItemName() {
+        return itemName;
     }
 
     public RelatedTechRoute getRelatedTechRoute() {

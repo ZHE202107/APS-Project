@@ -1,4 +1,4 @@
-package com.example.aps_project.model;
+package com.example.aps_project.repository;
 
 import android.util.Log;
 
@@ -97,5 +97,11 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
     public List<MOResponse> loadScheduleTable() {
         Log.e("www", "public List<MOResponse> loadScheduleTable() {" + searchResultList.size());
         return searchResultList;
+    }
+
+    @Override
+    public MOResponse getItemSearchResult(int position) {
+        Log.e("www", "MOResponse Repository：" + searchResultList.size());
+        return searchResultList.get(position);
     }
 }

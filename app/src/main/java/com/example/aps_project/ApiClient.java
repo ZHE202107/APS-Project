@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private ApiService apiService;
-//    private Gson gson = new GsonBuilder().setLenient().create();
 
     public ApiService getApiService() {
         Retrofit retrofit = new Retrofit.Builder()

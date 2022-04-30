@@ -1,23 +1,11 @@
 package com.example.aps_project.presenter;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.aps_project.ApiClient;
-import com.example.aps_project.SessionManager;
 import com.example.aps_project.contract.ScheduleTableSearchContract;
-import com.example.aps_project.model.ScheduleTableSearchRepository;
-import com.example.aps_project.service.ApiService;
+import com.example.aps_project.repository.ScheduleTableSearchRepository;
 import com.example.aps_project.service.FuzzyQueryResponse;
-import com.example.aps_project.service.MOResponse;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ScheduleTableSearchPresenter implements ScheduleTableSearchContract.IPresenter {
     private ScheduleTableSearchContract.IVew view;

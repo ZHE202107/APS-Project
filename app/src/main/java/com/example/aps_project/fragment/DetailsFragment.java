@@ -2,8 +2,10 @@ package com.example.aps_project.fragment;
 
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.widget.RadioButton;
 
 import com.example.aps_project.R;
 import com.example.aps_project.databinding.FragmentDetailsBinding;
+import com.example.aps_project.repository.ScheduleTableSearchRepository;
+import com.example.aps_project.service.MOResponse;
 import com.google.android.material.internal.VisibilityAwareImageButton;
 
 import java.util.Arrays;
@@ -71,7 +75,20 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //取得初始資料
+        Bundle bundle = getArguments();
+        int position = bundle.getInt("position");
+
+        ScheduleTableSearchRepository repository = new ScheduleTableSearchRepository(this);
+        MOResponse data = new MOResponse();
+        data = repository.getItemSearchResult(position);
+        Log.e("www", data.getMoId());
+        Log.e("www", data.getSoId());
+        Log.e("www", "position：" + position+1);
+
+
         binding = FragmentDetailsBinding.inflate(inflater, container, false);
+        binding.setItemMO(data);
         init(); //元件初始化
         return binding.getRoot();
     }

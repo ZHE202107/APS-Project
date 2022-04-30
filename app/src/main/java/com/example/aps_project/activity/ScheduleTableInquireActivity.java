@@ -3,8 +3,6 @@ package com.example.aps_project.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 
 import com.example.aps_project.SessionManager;
 import com.example.aps_project.databinding.ActivityScheduleTableInquireBinding;

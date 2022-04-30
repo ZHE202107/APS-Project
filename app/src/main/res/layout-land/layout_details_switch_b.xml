@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center_vertical"
+        android:gravity="top|center_vertical"
         android:text="1MO1812040031"
         android:textColor="#388E3C" />
 

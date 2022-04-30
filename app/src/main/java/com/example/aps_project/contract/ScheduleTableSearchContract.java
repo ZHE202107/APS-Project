@@ -21,8 +21,11 @@ public class ScheduleTableSearchContract extends Fragment {
         //呼叫進度表查詢API
         void callScheduleTableSearch(String online_date, String sale_order, String customer, Callback.scheduleTable callback);
 
-        //讀取進度表查詢結果
+        //讀取進度表查詢結果清單
         List<MOResponse> loadScheduleTable();
+
+        //取得搜尋結果清單的指定元素值
+        MOResponse getItemSearchResult(int position);
 
         class Callback {
             public interface scheduleTable {

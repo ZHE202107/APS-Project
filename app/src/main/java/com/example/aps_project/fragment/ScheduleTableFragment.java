@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.aps_project.R;
 import com.example.aps_project.databinding.FragmentScheduleTableBinding;
 import com.example.aps_project.databinding.ItemScheduleTableBinding;
-import com.example.aps_project.model.ScheduleTableSearchRepository;
+import com.example.aps_project.repository.ScheduleTableSearchRepository;
 import com.example.aps_project.service.MOResponse;
 
 import java.util.List;
@@ -79,21 +79,31 @@ public class ScheduleTableFragment extends Fragment {
     private void init() {
         repository = new ScheduleTableSearchRepository(this);
 
-        List<MOResponse> searchResultList = repository.loadScheduleTable();
+        List<MOResponse> searchResultList = repository.loadScheduleTable();  //載入搜尋結果
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ScheduleTableAdapter mAdapter = new ScheduleTableAdapter(searchResultList);
 
-        //recyclerView 的item典籍事件
+
+
+        //recyclerView 的item點擊事件，跳轉至另一個Fragment
         mAdapter.setOnItemClickListener((view, position) -> {
+            //準備跳轉到該Fragment的'資料'
+            Bundle bundle = new Bundle();
+            Log.e("www", "跳轉前的position紀錄："+position);
+            bundle.putInt("position", position);
+
+            //設置要傳送的資料
+            DetailsFragment df = new DetailsFragment();
+            df.setArguments(bundle);
+
             //Toast.makeText(getContext(), "點擊了"+String.valueOf(position), Toast.LENGTH_SHORT).show(); //Debug用!!!
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentContainerView, new DetailsFragment())
+                    .replace(R.id.fragmentContainerView, df)
                     .addToBackStack("1")
                     .commit();
         });
 
         binding.recyclerView.setAdapter(mAdapter);
-        Log.e("www", "總比數為" + searchResultList.size());
         //總比數顯示
         binding.totalNum.setText("共" + searchResultList.size() + "筆");
     }
@@ -128,7 +138,7 @@ public class ScheduleTableFragment extends Fragment {
                 mView.index.setText(String.valueOf(position+1));
                 if (mOnItemClickListener != null) {
                     itemView.setOnClickListener(View -> {
-                        mOnItemClickListener.OnItemClick(itemView, position+1);
+                        mOnItemClickListener.OnItemClick(itemView, position);
                     });
                 }
 
