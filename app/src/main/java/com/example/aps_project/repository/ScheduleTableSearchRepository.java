@@ -95,13 +95,12 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
 
     @Override
     public List<MOResponse> loadScheduleTable() {
-        Log.e("www", "public List<MOResponse> loadScheduleTable() {" + searchResultList.size());
         return searchResultList;
     }
 
     @Override
     public MOResponse getItemSearchResult(int position) {
-        Log.e("www", "MOResponse Repository：" + searchResultList.size());
+        if(position == -1) return null;
         return searchResultList.get(position);
     }
 }

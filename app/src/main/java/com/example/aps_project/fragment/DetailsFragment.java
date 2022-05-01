@@ -27,10 +27,10 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class DetailsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
-
     private FragmentDetailsBinding binding;
     private List<RadioButton> radioButtons;
     private int radioButtonsIndex;
+    private int itemPosition = -1;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,20 +75,20 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //取得初始資料
-        Bundle bundle = getArguments();
-        int position = bundle.getInt("position");
-
-        ScheduleTableSearchRepository repository = new ScheduleTableSearchRepository(this);
-        MOResponse data = new MOResponse();
-        data = repository.getItemSearchResult(position);
-        Log.e("www", data.getMoId());
-        Log.e("www", data.getSoId());
-        Log.e("www", "position：" + position+1);
-
-
         binding = FragmentDetailsBinding.inflate(inflater, container, false);
-        binding.setItemMO(data);
+
+        //取得初始資料=
+        if(getArguments() != null) {
+            itemPosition = getArguments().getInt("position");
+            Log.e("www", "[DetailsFragment] 取得初始資料 position：" + itemPosition);
+
+            ScheduleTableSearchRepository repository = new ScheduleTableSearchRepository(this);
+            MOResponse data = repository.getItemSearchResult(itemPosition);
+            binding.setItemMO(data); //DataBinding設值
+        } else {
+            Log.e("www", "[DetailsFragment] 無法獲取初始資料!!!");
+        }
+
         init(); //元件初始化
         return binding.getRoot();
     }
@@ -100,7 +100,7 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
         for (RadioButton radioButton: radioButtons) {
             radioButton.setOnCheckedChangeListener(this);
         }
-        radioButtonsSelect(binding.currStageBtn);  //選擇初始化面預設按鈕!!!!
+        radioButtonsSelect(binding.currStageBtn);  //選擇初始化面預設按鈕!!!! (本階製令)
         // 前一頁&下一頁按鈕的點擊監聽事件
         binding.previousPageBtn.setOnClickListener(this);
         binding.nextPageBtn.setOnClickListener(this);
@@ -116,8 +116,18 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
             binding.previousPageBtn.setVisibility(VisibilityAwareImageButton.INVISIBLE);
         else if (radioButtonsIndex == radioButtons.size() - 1) //當前是最後一頁，隱藏nextPageBtn的可見性
             binding.nextPageBtn.setVisibility(VisibilityAwareImageButton.INVISIBLE);
-
         radioButton.setChecked(true);  //更改選擇項
+
+        //準備要傳送到底細項Fragment的初始資料
+        Bundle bundle = new Bundle();
+        bundle.putInt("position", itemPosition);
+        //設置初始值
+        OrderDetailsFragment orderDetailsFragment = new OrderDetailsFragment();
+        orderDetailsFragment.setArguments(bundle);
+
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.fragment_order_details, orderDetailsFragment)
+                .commit();
     }
 
     @Override

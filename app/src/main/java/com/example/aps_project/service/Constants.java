@@ -9,4 +9,5 @@ public final class Constants {
     public static final String FUZZY_QUERY_CUSTOMER = "app-search-customer";  //模糊查詢客戶名稱
 
     public static final String GET_MANUFACTURE = "get-manufacture"; //查詢製令單號(MO)
+    public static final String GET_CURR_STAGE_MO = "get-current-stage-com";; //查詢本階製令(BOM)
 }

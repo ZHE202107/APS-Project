@@ -39,4 +39,11 @@ public interface ApiService {
         @Query("sale_order") String sale_order,
         @Query("customer") String customer
     );
+
+    //查詢本階製令(BOM)
+    @GET(Constants.GET_CURR_STAGE_MO)
+    Call<List<CurrStageMOResponse>> getCurrStageMO(
+        @Query("token") String token,
+        @Query("item_id") String itemId
+    );
 }
