@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -85,6 +86,8 @@ public class AddScheduleFragment extends Fragment implements ScheduleTableSearch
         //設定recyclerView布局
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         fuzzyQueryAdapter = new FuzzyQueryAdapter(this, binding);
+        //設置底線
+        binding.recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
         binding.recyclerView.setAdapter(fuzzyQueryAdapter);
 
         // "確定"按鈕點擊事件

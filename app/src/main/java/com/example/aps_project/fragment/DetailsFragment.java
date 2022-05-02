@@ -2,7 +2,6 @@ package com.example.aps_project.fragment;
 
 import android.os.Bundle;
 
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -14,6 +13,8 @@ import android.widget.RadioButton;
 
 import com.example.aps_project.R;
 import com.example.aps_project.databinding.FragmentDetailsBinding;
+import com.example.aps_project.databinding.LayoutDetailsSwitchABinding;
+import com.example.aps_project.databinding.LayoutDetailsSwitchBBinding;
 import com.example.aps_project.repository.ScheduleTableSearchRepository;
 import com.example.aps_project.service.MOResponse;
 import com.google.android.material.internal.VisibilityAwareImageButton;
@@ -29,6 +30,7 @@ import java.util.List;
 public class DetailsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private FragmentDetailsBinding binding;
     private List<RadioButton> radioButtons;
+    private MOResponse itemMO; //準備給detailsLayoutSwitch 的DataBinding資料
     private int radioButtonsIndex;
     private int itemPosition = -1;
 
@@ -77,14 +79,14 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
                              Bundle savedInstanceState) {
         binding = FragmentDetailsBinding.inflate(inflater, container, false);
 
-        //取得初始資料=
+        //取得初始資料
         if(getArguments() != null) {
             itemPosition = getArguments().getInt("position");
             Log.e("www", "[DetailsFragment] 取得初始資料 position：" + itemPosition);
 
             ScheduleTableSearchRepository repository = new ScheduleTableSearchRepository(this);
-            MOResponse data = repository.getItemSearchResult(itemPosition);
-            binding.setItemMO(data); //DataBinding設值
+            //根據上一個頁面傳進來的position，去向repository拿資料
+            itemMO = repository.getItemSearchResult(itemPosition);
         } else {
             Log.e("www", "[DetailsFragment] 無法獲取初始資料!!!");
         }
@@ -100,7 +102,7 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
         for (RadioButton radioButton: radioButtons) {
             radioButton.setOnCheckedChangeListener(this);
         }
-        radioButtonsSelect(binding.currStageBtn);  //選擇初始化面預設按鈕!!!! (本階製令)
+        radioButtonsSelect(binding.currStageBtn);  //!!! 選擇初始化面預設按鈕 !!!! (本階製令)
         // 前一頁&下一頁按鈕的點擊監聽事件
         binding.previousPageBtn.setOnClickListener(this);
         binding.nextPageBtn.setOnClickListener(this);
@@ -130,17 +132,23 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
                 .commit();
     }
 
+
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (!b) return; //如果都沒有被選擇，則直接結束
-        View viewA = getLayoutInflater().inflate(R.layout.layout_details_switch_a, null);
-        View viewB = getLayoutInflater().inflate(R.layout.layout_details_switch_b, null);
+        // 更改布局
+        LayoutDetailsSwitchABinding aView = LayoutDetailsSwitchABinding.inflate(getLayoutInflater());
+        LayoutDetailsSwitchBBinding bView = LayoutDetailsSwitchBBinding.inflate(getLayoutInflater());
+        Log.e("www", "[DetailsFragment 的 aView] itemMO是否為空：" + (itemMO == null));
+        aView.setItemMO(itemMO);
+
         binding.detailsLayoutSwitch.removeAllViews();
         if (compoundButton == binding.salesRadioBtn) {
-            binding.detailsLayoutSwitch.addView(viewB);
+            binding.detailsLayoutSwitch.addView(bView.getRoot());
         } else {
-            binding.detailsLayoutSwitch.addView(viewA);
+            binding.detailsLayoutSwitch.addView(aView.getRoot());
         }
+
         radioButtonsSelect((RadioButton)compoundButton);
     }
 
