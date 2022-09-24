@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.aps_project.R;
 import com.example.aps_project.activity.TodayScheduleActivity;
+import com.example.aps_project.adapter.TodayScheduleAdapter;
 import com.example.aps_project.databinding.FragmentTodayScheduleBinding;
 
 /**
@@ -76,7 +77,7 @@ public class TodayScheduleFragment extends Fragment {
 
     private void init() {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ScheduleAdapter mAdapter = new ScheduleAdapter();
+        TodayScheduleAdapter mAdapter = new TodayScheduleAdapter();
         mAdapter.setOnItemClickListener((view, position) ->  {
             // Toast.makeText(binding.getRoot().getContext(), "點擊了"+String.valueOf(position), Toast.LENGTH_SHORT).show(); //!!Debug用
             Intent intent = new Intent(getActivity(), TodayScheduleActivity.class);
@@ -84,53 +85,5 @@ public class TodayScheduleFragment extends Fragment {
         });
         binding.recyclerView.setAdapter(mAdapter);
 
-    }
-
-    /** --------------------
-     *   ScheduleAdapter
-     * -------------------- */
-    static class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHolder> {
-        private OnItemClickListener mOnItemClickListener;
-
-        //設置Callback接口
-        public interface OnItemClickListener {
-            void onItemClick(View view, int position);
-        }
-
-        public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
-            this.mOnItemClickListener = mOnItemClickListener;
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView tvIndex;
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                tvIndex = itemView.findViewById(R.id.index);
-            }
-        }
-
-        @NonNull
-        @Override
-        public ScheduleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_today_schedule, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ScheduleAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-            holder.tvIndex.setText(String.valueOf(position+1));
-            // 設置點擊事件
-            if (mOnItemClickListener != null) {
-                holder.itemView.setOnClickListener(View -> {
-                    mOnItemClickListener.onItemClick(holder.itemView, position+1);
-                });
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return 10;
-        }
     }
 }

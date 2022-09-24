@@ -21,10 +21,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.IV
         binding = ActivityLoginMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         presenter = new LoginPresenter(this);
+
+        binding.loginBtn.setOnClickListener(this::login);
     }
 
     // 登入按鈕, click如果登入成功則跳轉到主頁面(MainActivity)
-    public void login(View v) {
+    private void login(View v) {
         presenter.login(binding.accountEditText.getText().toString(),
             binding.passwordEditText.getText().toString());
     }

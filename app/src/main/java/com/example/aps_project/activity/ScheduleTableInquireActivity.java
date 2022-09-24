@@ -24,6 +24,7 @@ public class ScheduleTableInquireActivity extends AppCompatActivity {
 
     private void init() {
         mainBinding.titleBarBack.tvCurrentTitle.setText("進度表查詢");
+        // 監聽按下返回鍵的事件, 當按下返回鍵彈出當前的Fragment, 但其條件是堆裡面有Fragment。
         mainBinding.titleBarBack.backBtn.setOnClickListener((view) -> {
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();

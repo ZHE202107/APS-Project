@@ -13,12 +13,16 @@ import com.example.aps_project.service.MOResponse;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.observers.DisposableSingleObserver;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Response;
 
 public class ScheduleTableSearchRepository implements ScheduleTableSearchContract.IRepository {
     private static ApiService apiService;
-    private SessionManager sessionManager;
+    private final SessionManager sessionManager;
     private List<FuzzyQueryResponse> fuzzyQueryList;    //儲存模糊搜尋結果
     private static List<MOResponse> searchResultList;    //Search Result List (進度表搜尋結果清單)
     private static String token;
@@ -32,9 +36,11 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
     @Override
     public void callQuerySaleOrder(String soId, Callback.fuzzyQuery callback) {
         apiService.fuzzyQuerySaleOrder(token, soId)
-            .enqueue(new retrofit2.Callback<List<FuzzyQueryResponse>>() {
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new DisposableSingleObserver<Response<List<FuzzyQueryResponse>>>() {
                 @Override
-                public void onResponse(Call<List<FuzzyQueryResponse>> call, Response<List<FuzzyQueryResponse>> response) {
+                public void onSuccess(@NonNull Response<List<FuzzyQueryResponse>> response) {
                     if (response.code() == 200 && response.body() != null) {
                         fuzzyQueryList = response.body(); //儲存結果
                         callback.onFuzzyQueryResponse(fuzzyQueryList);
@@ -44,7 +50,7 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
                 }
 
                 @Override
-                public void onFailure(Call<List<FuzzyQueryResponse>> call, Throwable t) {
+                public void onError(@NonNull Throwable t) {
                     Log.e("www", "模糊查詢訂單_抓取失敗!!!!!\n" + t);
                 }
             });
@@ -53,9 +59,11 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
     @Override
     public void callQueryCustomerName(String customerName, Callback.fuzzyQuery callback) {
         apiService.fuzzyQueryCustomer(token, customerName)
-            .enqueue(new retrofit2.Callback<List<FuzzyQueryResponse>>() {
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new DisposableSingleObserver<Response<List<FuzzyQueryResponse>>>() {
                 @Override
-                public void onResponse(Call<List<FuzzyQueryResponse>> call, Response<List<FuzzyQueryResponse>> response) {
+                public void onSuccess(@NonNull Response<List<FuzzyQueryResponse>> response) {
                     if (response.code() == 200 && response.body() != null) {
                         fuzzyQueryList = response.body();   //儲存結果
                         callback.onFuzzyQueryResponse(fuzzyQueryList);
@@ -65,7 +73,7 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
                 }
 
                 @Override
-                public void onFailure(Call<List<FuzzyQueryResponse>> call, Throwable t) {
+                public void onError(@NonNull Throwable t) {
                     Log.e("www", "模糊查詢客戶名稱_抓取失敗!!!!!\n" + t);
                 }
             });
@@ -73,11 +81,13 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
 
     @Override
     public void callScheduleTableSearch(String online_date, String sale_order, String customer, Callback.scheduleTable callback) {
-        //呼叫API搜尋
+        //呼叫進度表查詢API去搜尋
         apiService.getManufactureOrder(sessionManager.fetchAuthToken(), online_date, sale_order, customer)
-            .enqueue(new retrofit2.Callback<List<MOResponse>>() {
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new DisposableSingleObserver<Response<List<MOResponse>>>() {
                 @Override
-                public void onResponse(Call<List<MOResponse>> call, Response<List<MOResponse>> response) {
+                public void onSuccess(@NonNull Response<List<MOResponse>> response) {
                     if(response.code() == 200 && response.body() != null) {
                         searchResultList = response.body();
                         callback.onScheduleTableResponse(searchResultList);
@@ -87,7 +97,7 @@ public class ScheduleTableSearchRepository implements ScheduleTableSearchContrac
                 }
 
                 @Override
-                public void onFailure(Call<List<MOResponse>> call, Throwable t) {
+                public void onError(@NonNull Throwable t) {
                     Log.e("www", "進度表查詢結果_抓取失敗!!!!!\n" + t);
                 }
             });

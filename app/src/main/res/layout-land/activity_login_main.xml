@@ -79,10 +79,9 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="login"
             android:text="登入" />
     </LinearLayout>
 
