@@ -11,16 +11,22 @@ import com.example.aps_project.contract.LoginContract;
 import com.example.aps_project.databinding.ActivityLoginMainBinding;
 import com.example.aps_project.presenter.LoginPresenter;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class LoginActivity extends AppCompatActivity implements LoginContract.IView {
     private ActivityLoginMainBinding binding;
-    private static LoginPresenter presenter;
+    @Inject
+    public LoginContract.IPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        presenter = new LoginPresenter(this);
+//        presenter = new LoginPresenter(this);
 
         binding.loginBtn.setOnClickListener(this::login);
     }

@@ -14,6 +14,9 @@ import com.example.aps_project.service.LoginResponse;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
@@ -22,13 +25,15 @@ import retrofit2.Response;
 
 public class LoginPresenter implements LoginContract.IPresenter {
     private static final String TAG = "LoginPresenter";
-    private LoginContract.IView view;
-    private ApiService apiService;
+    private final LoginContract.IView view;
+    @Inject
+    public ApiService apiService;
     private SessionManager sessionManager;
 
+    @Inject
     public LoginPresenter(LoginContract.IView view) {
         this.view = view;
-        apiService = new ApiClient().getApiService();
+//        apiService = new ApiClient().getApiService();
         Log.e(TAG, "init LoginPresenter");
     }
 

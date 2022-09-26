@@ -8,7 +8,7 @@
 
     <!--  networkSecurityConfig 允許使用明文傳輸  -->
     <application
-        android:name=".MyApp"
+        android:name=".di.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

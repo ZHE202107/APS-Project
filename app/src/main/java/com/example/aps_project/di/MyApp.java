@@ -1,4 +1,4 @@
-package com.example.aps_project;
+package com.example.aps_project.di;
 
 import android.app.Application;
 
