@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
+import android.se.omapi.Session;
 import android.util.Log;
 import android.view.View;
 
@@ -18,15 +19,24 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
+    @Inject
+    public SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.setSession(new SessionManager(this));
+        Log.v("ian-hilt", "MainActivity："+sessionManager.hashCode());
+        binding.setSession(sessionManager);
         Log.e("www", "protected void onCreate(Bundle savedInstanceState) {：" + new SessionManager(this).fetchUserName());
         init(); //初始化
     }

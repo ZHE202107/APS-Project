@@ -1,8 +1,11 @@
 package com.example.aps_project.di;
 
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 
+import com.example.aps_project.SessionManager;
 import com.example.aps_project.service.ApiService;
 import com.example.aps_project.service.Constants;
 
@@ -11,6 +14,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
@@ -33,6 +37,12 @@ public class NetworkModule {
     @Singleton
     @Provides
     public ApiService provideApiService(@NonNull Retrofit retrofit) {
-        return  retrofit.create(ApiService.class);
+        return retrofit.create(ApiService.class);
+    }
+
+    @Singleton
+    @Provides
+    public SessionManager provideSessionManager(@ApplicationContext Context context) {
+        return new SessionManager(context);
     }
 }

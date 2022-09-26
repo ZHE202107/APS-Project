@@ -28,7 +28,8 @@ public class LoginPresenter implements LoginContract.IPresenter {
     private final LoginContract.IView view;
     @Inject
     public ApiService apiService;
-    private SessionManager sessionManager;
+    @Inject
+    public SessionManager sessionManager;
 
     @Inject
     public LoginPresenter(LoginContract.IView view) {
@@ -58,7 +59,7 @@ public class LoginPresenter implements LoginContract.IPresenter {
                         if (body.getStatus() == 0) {    //登入成功
                             view.showLoginSuccess();
                             // ------- 儲存Token ---------
-                            sessionManager = new SessionManager((Context)view);
+//                            sessionManager = new SessionManager((Context)view);
                             sessionManager.saveAuthToken(body.getToken());
                             //-------- 取得登入人員資訊 --------
                             getUserInfo(body.getToken());

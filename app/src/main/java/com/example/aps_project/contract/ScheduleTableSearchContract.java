@@ -1,17 +1,13 @@
 package com.example.aps_project.contract;
 
-import android.telecom.Call;
-
-import androidx.fragment.app.Fragment;
-
 import com.example.aps_project.service.FuzzyQueryResponse;
 import com.example.aps_project.service.MOResponse;
 
 import java.util.List;
 
 
-public class ScheduleTableSearchContract extends Fragment {
-    public interface IRepository {
+public interface ScheduleTableSearchContract {
+    interface IRepository {
         /** 呼叫模糊搜尋 訂單單號API */
         void callQuerySaleOrder(String soId, Callback.fuzzyQuery callback);
         
@@ -34,11 +30,11 @@ public class ScheduleTableSearchContract extends Fragment {
 
             public interface fuzzyQuery {
                 void onFuzzyQueryResponse(List<FuzzyQueryResponse> fuzzyQueryList);
-            };
+            }
         }
     }
 
-    public interface IVew{
+    interface IVew{
         /** 關閉互動視窗 */
         void closeDialog();
 
@@ -52,7 +48,7 @@ public class ScheduleTableSearchContract extends Fragment {
         void tipNoResult();
     }
 
-    public interface IPresenter {
+    interface IPresenter {
         /** 模糊查詢"訂單單號" */
         void getQuerySaleOrder(String soId);
 

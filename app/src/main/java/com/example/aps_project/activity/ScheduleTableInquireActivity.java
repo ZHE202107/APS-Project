@@ -3,14 +3,23 @@ package com.example.aps_project.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.se.omapi.Session;
+import android.util.Log;
 
 import com.example.aps_project.SessionManager;
 import com.example.aps_project.databinding.ActivityScheduleTableInquireBinding;
 import com.example.aps_project.databinding.FragmentAddScheduleBinding;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class ScheduleTableInquireActivity extends AppCompatActivity {
     private ActivityScheduleTableInquireBinding mainBinding;
     private FragmentAddScheduleBinding fragmentBinding;
+    @Inject
+    public SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +27,8 @@ public class ScheduleTableInquireActivity extends AppCompatActivity {
         mainBinding = ActivityScheduleTableInquireBinding.inflate(getLayoutInflater());
         fragmentBinding = FragmentAddScheduleBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
-        mainBinding.setSession(new SessionManager(this));
+        Log.v("ian-hilt", "ScheduleTableInquireActivity："+sessionManager.hashCode());
+        mainBinding.setSession(sessionManager);
         init(); //初始化
     }
 

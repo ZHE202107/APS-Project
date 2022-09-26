@@ -5,18 +5,27 @@ import android.content.SharedPreferences;
 
 import org.jetbrains.annotations.Nullable;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
+import dagger.hilt.InstallIn;
+import dagger.hilt.android.qualifiers.ApplicationContext;
+import dagger.hilt.components.SingletonComponent;
+import io.reactivex.rxjava3.core.Single;
+
 /**
  * Session Manager 從 SharedPreferences 儲存和獲取資料
  */
 public class SessionManager {
-    private static String TOKEN = "token";      //存儲"token"    的KEY
-    private static String USER = "user_name";   //儲存"使用者名稱" 的KEY
+    private static final String TOKEN = "token";      //存儲"token"    的KEY
+    private static final String USER = "user_name";   //儲存"使用者名稱" 的KEY
     private Context context;
     private SharedPreferences prefs;
 
     public SessionManager(Context context) {
         this.context = context;
-
         // 只有自己(APS-Project APP)才可以讀寫
         prefs = this.context.getSharedPreferences(String.valueOf(R.string.app_name), Context.MODE_PRIVATE);
     }
