@@ -20,6 +20,7 @@ import com.example.aps_project.adapter.TodayScheduleAdapter;
 import com.example.aps_project.databinding.FragmentTodayScheduleBinding;
 
 /**
+ * 當日進度表Fragment |
  * A simple {@link Fragment} subclass.
  * Use the {@link TodayScheduleFragment#newInstance} factory method to
  * create an instance of this fragment.

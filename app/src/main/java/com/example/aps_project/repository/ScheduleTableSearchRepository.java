@@ -1,10 +1,8 @@
 package com.example.aps_project.repository;
 
+import android.content.Context;
 import android.util.Log;
 
-import androidx.fragment.app.Fragment;
-
-import com.example.aps_project.ApiClient;
 import com.example.aps_project.SessionManager;
 import com.example.aps_project.contract.ScheduleTableSearchContract;
 import com.example.aps_project.service.ApiService;
@@ -13,23 +11,26 @@ import com.example.aps_project.service.MOResponse;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import retrofit2.Call;
 import retrofit2.Response;
 
 public class ScheduleTableSearchRepository implements ScheduleTableSearchContract.IRepository {
-    private static ApiService apiService;
-    private final SessionManager sessionManager;
+    @Inject
+    public ApiService apiService;
+    public SessionManager sessionManager;
     private List<FuzzyQueryResponse> fuzzyQueryList;    //儲存模糊搜尋結果
     private static List<MOResponse> searchResultList;    //Search Result List (進度表搜尋結果清單)
     private static String token;
 
-    public ScheduleTableSearchRepository(Fragment view) {
-        apiService = new ApiClient().getApiService();
-        sessionManager = new SessionManager(view.getContext());
+    @Inject
+    public ScheduleTableSearchRepository(@ApplicationContext Context context) {
+        sessionManager = new SessionManager(context);
         token = sessionManager.fetchAuthToken(); //獲取token
     }
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.aps_project.ApiClient;
 import com.example.aps_project.SessionManager;
 import com.example.aps_project.contract.LoginContract;
 import com.example.aps_project.service.ApiService;
@@ -16,7 +15,6 @@ import java.net.SocketTimeoutException;
 
 import javax.inject.Inject;
 
-import dagger.hilt.android.qualifiers.ApplicationContext;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
@@ -34,7 +32,6 @@ public class LoginPresenter implements LoginContract.IPresenter {
     @Inject
     public LoginPresenter(LoginContract.IView view) {
         this.view = view;
-//        apiService = new ApiClient().getApiService();
         Log.e(TAG, "init LoginPresenter");
     }
 

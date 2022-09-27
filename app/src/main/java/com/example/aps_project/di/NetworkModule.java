@@ -20,6 +20,11 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * 網路相關處理封裝
+ * @author IanLiu
+ * @date 2022/09/26
+ */
 @InstallIn(SingletonComponent.class)
 @Module
 public class NetworkModule {

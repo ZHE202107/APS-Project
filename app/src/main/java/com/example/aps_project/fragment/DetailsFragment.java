@@ -84,7 +84,7 @@ public class DetailsFragment extends Fragment implements CompoundButton.OnChecke
             itemPosition = getArguments().getInt("position");
             Log.e("www", "[DetailsFragment] 取得初始資料 position：" + itemPosition);
 
-            ScheduleTableSearchRepository repository = new ScheduleTableSearchRepository(this);
+            ScheduleTableSearchRepository repository = new ScheduleTableSearchRepository(getContext());
             //根據上一個頁面傳進來的position，去向repository拿資料
             itemMO = repository.getItemSearchResult(itemPosition);
         } else {

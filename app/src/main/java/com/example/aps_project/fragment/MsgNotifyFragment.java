@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.example.aps_project.R;
 
 /**
+ * 訊息通知Fragment |
  * A simple {@link Fragment} subclass.
  * Use the {@link MsgNotifyFragment#newInstance} factory method to
  * create an instance of this fragment.

@@ -78,7 +78,7 @@ public class ScheduleTableFragment extends Fragment {
     }
 
     private void init() {
-        repository = new ScheduleTableSearchRepository(this);
+        repository = new ScheduleTableSearchRepository(getContext());
 
         List<MOResponse> searchResultList = repository.loadScheduleTable();  //載入搜尋結果
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

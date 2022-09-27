@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         Log.v("ian-hilt", "MainActivity："+sessionManager.hashCode());
         binding.setSession(sessionManager);
-        Log.e("www", "protected void onCreate(Bundle savedInstanceState) {：" + new SessionManager(this).fetchUserName());
+        Log.e("www", "protected void onCreate(Bundle savedInstanceState) {：" + sessionManager.fetchUserName());
         init(); //初始化
     }
 
@@ -53,18 +53,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attach();
         binding.tabLayout.selectTab(binding.tabLayout.getTabAt(1));
-    }
-
-    // Click, 顯示TodayScheduleFragment 當日進度表區塊
-    public void showTodaySchedule(View v) {
-        //Todo
-    }
-    // Click, 顯示ProductionScheduleFragment 生產排程區塊
-    public void showProductionSchedule(View v) {
-        //Todo
-    }
-    // Click, 顯示MsgNotifyFragment 訊息通知區塊
-    public void showMsgNotify(View v) {
-        //Todo
     }
 }

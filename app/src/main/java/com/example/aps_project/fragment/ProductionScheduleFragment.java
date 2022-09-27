@@ -14,6 +14,7 @@ import com.example.aps_project.activity.SettingActivity;
 import com.example.aps_project.databinding.FragmentProductionScheduleBinding;
 
 /**
+ * 生產排程Fragment |
  * A simple {@link Fragment} subclass.
  * Use the {@link ProductionScheduleFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -63,8 +64,7 @@ public class ProductionScheduleFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProductionScheduleBinding.inflate(inflater, container, false);
         init(); //初始化
         return binding.getRoot(); // Inflate the layout for this fragment

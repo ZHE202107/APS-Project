@@ -23,12 +23,17 @@ import com.example.aps_project.service.FuzzyQueryResponse;
 
 import java.util.List;
 
+import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class AddScheduleFragment extends Fragment implements ScheduleTableSearchContract.IVew {
 
     private FragmentAddScheduleBinding binding;
-    private ScheduleTableSearchContract.IPresenter presenter;
     private FuzzyQueryAdapter fuzzyQueryAdapter;
+    @Inject
+    public ScheduleTableSearchContract.IPresenter presenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class AddScheduleFragment extends Fragment implements ScheduleTableSearch
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAddScheduleBinding.inflate(inflater, container, false);
-        presenter = new ScheduleTableSearchPresenter(this);
+//        presenter = new ScheduleTableSearchPresenter(this);
         init(); //初始化
         return binding.getRoot();
     }

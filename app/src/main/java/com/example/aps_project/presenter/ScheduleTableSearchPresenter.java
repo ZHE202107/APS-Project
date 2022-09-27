@@ -4,16 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.aps_project.contract.ScheduleTableSearchContract;
+import com.example.aps_project.fragment.AddScheduleFragment;
 import com.example.aps_project.repository.ScheduleTableSearchRepository;
 import com.example.aps_project.service.FuzzyQueryResponse;
 
+import javax.inject.Inject;
+
 public class ScheduleTableSearchPresenter implements ScheduleTableSearchContract.IPresenter {
     private ScheduleTableSearchContract.IVew view;
-    private ScheduleTableSearchContract.IRepository repository;
+    @Inject
+    public ScheduleTableSearchContract.IRepository repository;
 
-    public ScheduleTableSearchPresenter(@NonNull Fragment view) {
-        this.view = (ScheduleTableSearchContract.IVew)view;
-        repository = new ScheduleTableSearchRepository(view);
+//    public ScheduleTableSearchPresenter(@NonNull Fragment view) {
+    @Inject
+    public ScheduleTableSearchPresenter(@NonNull AddScheduleFragment view) {
+        this.view = view;
     }
 
     //取得模糊搜尋 訂單單號
