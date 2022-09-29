@@ -2,7 +2,9 @@ package com.example.aps_project.service;
 
 import com.google.gson.annotations.SerializedName;
 
-//Manufacture Order Response
+/**
+ * Manufacture Order Response (本階製令)
+ * */
 public class MOResponse {
     @SerializedName("mo_id")    //製令單號(MO)
     private String moId;

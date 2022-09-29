@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 tab.setText(title.get(position));
             }
         }).attach();
-        binding.tabLayout.selectTab(binding.tabLayout.getTabAt(1));
+//        binding.tabLayout.selectTab(binding.tabLayout.getTabAt(1));
+        binding.viewPager2.setCurrentItem(1);
     }
 }
